@@ -1,10 +1,10 @@
 import react, { Component } from 'react';
-
+import Burger from '../../component/Burger';
 class BurgerBuilder extends Component{
     render(){
         return(
             <div>
-                <div>Хачиртай талх</div>
+                <Burger/>
                 <div>Орцын удирдлага</div>
             </div>
         )
