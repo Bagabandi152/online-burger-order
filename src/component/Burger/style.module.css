@@ -23,7 +23,7 @@
         margin: auto;
         text-align: center;
         overflow-y: auto;
-    }    
+    }
 }
 /* Desktop screen*/
 @media (min-width: 1024px) and (min-height: 630px) { 
