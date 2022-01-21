@@ -6,6 +6,7 @@
     font-weight: bold;
     margin: auto;
     text-align: center;
+    margin: 5px 0 5px 0;
 }
 /* Mobile big*/
 @media (min-width: 500px) and (min-height: 400px) { 
@@ -22,7 +23,7 @@
 /* Laptop screen */
 @media (min-width: 800px) and (min-height: 400px) { 
     .Burger {
-        width: 500px;
+        width: 480px;
         height: 450px;
         margin: auto;
         font-size: 15px;
@@ -34,7 +35,7 @@
 /* Desktop screen*/
 @media (min-width: 1024px) and (min-height: 630px) { 
     .Burger {
-        width: 600px;
+        width: 570px;
         height: 530px;
         margin: auto;
         font-size: 15px;

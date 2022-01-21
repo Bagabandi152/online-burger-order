@@ -5,10 +5,11 @@ import css from './style.module.css'
 const BuildControlls = (props) =>{
     return(
         <div className={css.BuildControls}>
-            <BuildControll addIngredient={props.addIngredient} removeIngredient={props.removeIngredient} type="salad" text="Салад"/>
-            <BuildControll addIngredient={props.addIngredient} removeIngredient={props.removeIngredient} type="cheese" text="Бяслаг"/>
-            <BuildControll addIngredient={props.addIngredient} removeIngredient={props.removeIngredient} type="bacon" text="Гахайн мах"/>
-            <BuildControll addIngredient={props.addIngredient} removeIngredient={props.removeIngredient} type="meat" text="Үхрийн мах"/>
+            <p>Бургерийн үнэ: <strong style={{color: 'red'}}>{props.price}₮</strong></p>
+            <BuildControll addIngredient={props.addIngredient} removeIngredient={props.removeIngredient} disabledIngredients={props.disabledIngredients} type="salad" text="Салад"/>
+            <BuildControll addIngredient={props.addIngredient} removeIngredient={props.removeIngredient} disabledIngredients={props.disabledIngredients} type="cheese" text="Бяслаг"/>
+            <BuildControll addIngredient={props.addIngredient} removeIngredient={props.removeIngredient} disabledIngredients={props.disabledIngredients} type="bacon" text="Гахайн мах"/>
+            <BuildControll addIngredient={props.addIngredient} removeIngredient={props.removeIngredient}  disabledIngredients={props.disabledIngredients} type="meat" text="Үхрийн мах"/>
         </div>
     )
 }

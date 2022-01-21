@@ -13,7 +13,7 @@ const Burger = (props) => {
     })
 
     if(burgerContent.length === 0){
-        burgerContent = <p>Та өөрийн хачиртай талхны орцыг сонгоно уу...</p>
+        burgerContent = <p>Та өөрийн захиалах бургерийн орцыг сонгоно уу...</p>
     }
 
     return(
