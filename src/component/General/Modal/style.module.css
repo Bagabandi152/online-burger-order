@@ -1,0 +1,41 @@
+/* Mobile  */
+.Modal{
+    position: fixed;
+    z-index: 1000;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: #c6c6c6;
+    top: 30%;
+    left: 15%;
+    width: 70%;
+}
+
+/* Laptop screen */
+@media (min-width: 800px) and (min-height: 400px)  { 
+    .Modal{
+        position: fixed;
+        z-index: 1000;
+        padding: 10px;
+        border: 2px solid #000;
+        border-radius: 5px;
+        background-color: #c6c6c6;
+        width: 480px;
+        top: 30%;
+        left: calc(50% - 240px);
+    }
+}
+/* Desktop screen*/
+@media (min-width: 1024px) and (min-height: 630px) { 
+    .Modal {
+        position: fixed;
+        z-index: 1000;
+        padding: 10px;
+        background-color: #c6c6c6;
+        border: 2px solid #000;
+        border-radius: 5px;
+        width: 680px;
+        top: 30%;
+        left: calc(50% - 340px);
+    }    
+}
