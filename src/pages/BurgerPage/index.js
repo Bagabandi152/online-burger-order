@@ -2,8 +2,15 @@ import react, { Component } from "react";
 import Burger from "../../component/Burger";
 import BuildControlls from "../../component/BuildControlls";
 import Modal from "../../component/General/Modal";
+import OrderSummary from "../../component/OrderSummary";
 
 const INGREDIENTS_COSTS = { salad: 250, cheese: 500, bacon: 800, meat: 1500 };
+const INGREDIENTS_NAME = {
+  salad: "Салад",
+  cheese: "Бяслаг",
+  bacon: "Гахайн мах",
+  meat: "Үхрийн мах",
+};
 
 class BurgerBuilder extends Component {
   state = {
@@ -51,7 +58,8 @@ class BurgerBuilder extends Component {
       <div>
         <Burger ingredients={this.state.ingredients} />
         <BuildControlls
-          orderBurger={() => this.setState({ ...this.state, ordering: true })}
+          ingredientNames={INGREDIENTS_NAME}
+          orderBurger={() => this.setState({ ordering: true })}
           disabled={!this.state.purchasing}
           price={this.state.totalPrice}
           disabledIngredients={disabledIngredients}
@@ -60,13 +68,13 @@ class BurgerBuilder extends Component {
         />
         {this.state.ordering && (
           <Modal>
-            <h3>Та өөрийг захиалгыг нягтална уу!</h3>
-            <h4>Таны захилгын дэлгэрэнгүй мэдээлэл: </h4>
-            <p>Салад: {this.state.ingredients.salad}</p>
-            <p>Бяслаг: {this.state.ingredients.cheese}</p>
-            <p>Гахайн мах: {this.state.ingredients.bacon}</p>
-            <p>Үхрийн мах: {this.state.ingredients.meat}</p>
-            <button onClick={() => this.setState({ ...this.state, ordering: false })}>Хаах</button>
+            <OrderSummary
+              ingredients={this.state.ingredients}
+              ingredientsName={INGREDIENTS_NAME}
+              ingredientsCost={INGREDIENTS_COSTS}
+              totalPrice={this.state.totalPrice}
+              showModal={() => this.setState({ ordering: false })}
+            />
           </Modal>
         )}
       </div>
