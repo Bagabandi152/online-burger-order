@@ -3,6 +3,7 @@ import Burger from "../../component/Burger";
 import BuildControlls from "../../component/BuildControlls";
 import Modal from "../../component/General/Modal";
 import OrderSummary from "../../component/OrderSummary";
+import Shadow from "../../component/General/Shadow";
 
 const INGREDIENTS_COSTS = { salad: 250, cheese: 500, bacon: 800, meat: 1500 };
 const INGREDIENTS_NAME = {
@@ -67,15 +68,18 @@ class BurgerBuilder extends Component {
           removeIngredient={this.removeIngredient}
         />
         {this.state.ordering && (
-          <Modal>
-            <OrderSummary
-              ingredients={this.state.ingredients}
-              ingredientsName={INGREDIENTS_NAME}
-              ingredientsCost={INGREDIENTS_COSTS}
-              totalPrice={this.state.totalPrice}
-              showModal={() => this.setState({ ordering: false })}
-            />
-          </Modal>
+          <>
+            <Modal>
+              <OrderSummary
+                ingredients={this.state.ingredients}
+                ingredientsName={INGREDIENTS_NAME}
+                ingredientsCost={INGREDIENTS_COSTS}
+                totalPrice={this.state.totalPrice}
+                showModal={() => this.setState({ ordering: false })}
+              />
+            </Modal>
+            <Shadow showShadow={() => this.setState({ ordering: false })}/>
+          </>
         )}
       </div>
     );

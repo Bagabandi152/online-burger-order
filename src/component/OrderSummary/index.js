@@ -1,6 +1,7 @@
 import React from 'react'
 import css from './style.module.css'
 import FormatMnt from '../FormatMnt'
+import Button from '../General/Button'
 
 const OrderSummary = (props) => {
     return(
@@ -16,8 +17,8 @@ const OrderSummary = (props) => {
                 <p><strong>Нийт үнэ:</strong>&nbsp;<span style={{color:'red'}}>{FormatMnt(props.totalPrice)}</span></p>
             </div>
             <div className={css.ModalFooter}>
-                <button onClick={props.showModal}>Цааш үргэлжлүүлэх</button>
-                <button onClick={props.showModal}>Хаах</button>
+                <Button onClick={props.showModal} btnType='Success'>Цааш үргэлжлүүлэх</Button>
+                <Button onClick={props.showModal} btnType='Danger'>Хаах</Button>
             </div>
         </>
     )
