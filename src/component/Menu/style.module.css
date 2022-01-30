@@ -1,9 +1,21 @@
 .Menu{
     background-color: transparent;
     list-style: none;
-    display: flex;
+    display: block;
     flex-flow: row;
     align-items: center;
     margin: 0px;
     padding: 0px;
+}
+
+@media (min-width: 500px){
+    .Menu{
+        background-color: transparent;
+        list-style: none;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+    }
 }

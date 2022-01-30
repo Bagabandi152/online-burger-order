@@ -1,14 +1,14 @@
 import React from "react";
-import styles from "./style.module.css";
+import css from "./style.module.css";
 import Logo from "../Logo";
 import Menu from "../Menu";
 
 const index = () => {
   return (
-    <div className={styles.Toolbar}>
+    <div className={css.Toolbar}>
       <div>...</div>
       <Logo />
-      <nav>
+      <nav className={css.HideOnMenu}>
         <Menu />
       </nav>
     </div>

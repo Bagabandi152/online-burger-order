@@ -6,9 +6,9 @@ const Menu = (props) => {
   return (
     <ul className={css.Menu}>
       <MenuItem active link="/">
-        BURGER
+        ШИНЭ ЗАХИАЛГА
       </MenuItem>
-      <MenuItem link="/checkout">PAYMENT</MenuItem>
+      <MenuItem link="/login">НЭВТРЭХ</MenuItem>
     </ul>
   );
 };
