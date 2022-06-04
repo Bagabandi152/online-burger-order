@@ -2,11 +2,12 @@ import React from "react";
 import css from "./style.module.css";
 import Logo from "../Logo";
 import Menu from "../Menu";
+import HamburgerMenu from "../HamburgerMenu";
 
-const index = () => {
+const Toolbar = (props) => {
   return (
     <div className={css.Toolbar}>
-      <div>...</div>
+      <HamburgerMenu toggleSideBar={props.toggleSideBar}/>
       <Logo />
       <nav className={css.HideOnMenu}>
         <Menu />
@@ -15,4 +16,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Toolbar;

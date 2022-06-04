@@ -1,6 +1,6 @@
-import react, { Component } from "react";
+import React, { Component } from "react";
 import Burger from "../../component/Burger";
-import BuildControlls from "../../component/BuildControlls";
+import BuildControls from "../../component/BuildControls";
 import Modal from "../../component/General/Modal";
 import OrderSummary from "../../component/OrderSummary";
 import Shadow from "../../component/General/Shadow";
@@ -58,7 +58,7 @@ class BurgerBuilder extends Component {
     return (
       <div>
         <Burger ingredients={this.state.ingredients} />
-        <BuildControlls
+        <BuildControls
           ingredientNames={INGREDIENTS_NAME}
           orderBurger={() => this.setState({ ordering: true })}
           disabled={!this.state.purchasing}

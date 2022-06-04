@@ -6,7 +6,7 @@ const Burger = (props) => {
 
     const burgerItems = Object.entries(props.ingredients);
     //console.log("----burgerItems: ", burgerItems);
-    burgerItems.map((bi, idx) => {
+    burgerItems.forEach((bi, idx) => {
         for(let i = 0; i < bi[1]; i++){
             burgerContent.push(<BurgerIngredient key={`${idx + 1}${i + 1}`} type={bi[0]}/>)
         }
