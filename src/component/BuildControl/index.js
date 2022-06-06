@@ -1,7 +1,7 @@
 import React from 'react'
 import css from './style.module.css'
 
-const BuildControll = (props) =>{
+const BuildControl = (props) =>{
     
     return(
         <div className={css.BuildControl}>
@@ -12,4 +12,4 @@ const BuildControll = (props) =>{
     )
 }
 
-export default BuildControll;
+export default BuildControl;

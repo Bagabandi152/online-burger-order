@@ -1,16 +1,16 @@
 import React from "react";
-import BuildControll from "../BuildControll";
+import BuildControl from "../BuildControl";
 import FormatMnt from "../FormatMnt";
 import css from "./style.module.css";
 
-const BuildControlls = (props) => {
+const BuildControls = (props) => {
   return (
     <div className={css.BuildControls}>
       <p>
         Бургерийн үнэ:&nbsp;<strong style={{ color: "red" }}>{FormatMnt(props.price)}</strong>
       </p>
       {Object.keys(props.ingredientNames).map((ctrl) => (
-        <BuildControll
+        <BuildControl
           key={ctrl}
           addIngredient={props.addIngredient}
           removeIngredient={props.removeIngredient}
@@ -24,4 +24,4 @@ const BuildControlls = (props) => {
   );
 };
 
-export default BuildControlls;
+export default BuildControls;

@@ -17,7 +17,7 @@ const OrderSummary = (props) => {
                 <p><strong>Нийт үнэ:</strong>&nbsp;<span style={{color:'red'}}>{FormatMnt(props.totalPrice)}</span></p>
             </div>
             <div className={css.ModalFooter}>
-                <Button onClick={props.showModal} btnType='Success'>Цааш үргэлжлүүлэх</Button>
+                <Button onClick={props.continueOrder} btnType='Success'>Цааш үргэлжлүүлэх</Button>
                 <Button onClick={props.showModal} btnType='Danger'>Хаах</Button>
             </div>
         </>
