@@ -5,6 +5,7 @@ import Modal from "../../component/General/Modal";
 import OrderSummary from "../../component/OrderSummary";
 import Shadow from "../../component/General/Shadow";
 import baseAxios from "../../axios-instance/base-axios";
+import Spinner from "../../component/General/Spinner";
 
 const INGREDIENTS_COSTS = { salad: 250, cheese: 500, bacon: 800, meat: 1500 };
 const INGREDIENTS_NAME = {
@@ -25,9 +26,25 @@ class BurgerBuilder extends Component {
     totalPrice: 0,
     purchasing: false,
     ordering: false,
+    loading: false
   };
 
+  componentDidMount = () => {
+    this.setState({ loading: true })
+    baseAxios.get('/orders.json')
+    .then(res =>{
+      console.log('---orders res: ', res.data)
+    })
+    .catch((err) => {
+      console.log('Error: ', err)
+    })
+    .finally(() => {
+      this.setState({ loading: false })
+    })
+  }
+
   continueOrder = () => {
+    this.setState({ ordering: false })
     const order = {
       order: {
         ingredients: this.state.ingredients,
@@ -43,10 +60,17 @@ class BurgerBuilder extends Component {
         apartment: 'Dorm 2 in NUM'
       }
     }
-    baseAxios.post('/orders.json', order).then(res =>{
-      alert('saved successfully. Good luck pro.')
-      this.setState({ ordering: false })
-    })
+    this.setState({ loading: true })
+    baseAxios.post('/orders.json', order)
+      .then(res =>{
+        alert('saved successfully. Good luck pro.')
+      })
+      .catch((err) => {
+        console.log('Error: ', err)
+      })
+      .finally(() => {
+        this.setState({ loading: false })
+      })
   }
 
   addIngredient = (type) => {
@@ -81,6 +105,7 @@ class BurgerBuilder extends Component {
     return (
       <div>
         <Burger ingredients={this.state.ingredients} />
+        {this.state.loading && <Spinner />}
         <BuildControls
           ingredientNames={INGREDIENTS_NAME}
           orderBurger={() => this.setState({ ordering: true })}
