@@ -6,6 +6,7 @@ import OrderSummary from "../../component/OrderSummary";
 import Shadow from "../../component/General/Shadow";
 import baseAxios from "../../axios-instance/base-axios";
 import Spinner from "../../component/General/Spinner";
+import toast, { Toaster } from 'react-hot-toast';
 
 const INGREDIENTS_COSTS = { salad: 250, cheese: 500, bacon: 800, meat: 1500 };
 const INGREDIENTS_NAME = {
@@ -43,6 +44,15 @@ class BurgerBuilder extends Component {
     })
   }
 
+  successOrder = () => {
+    return(
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
+    )
+  }
+
   continueOrder = () => {
     this.setState({ ordering: false })
     const order = {
@@ -63,10 +73,10 @@ class BurgerBuilder extends Component {
     this.setState({ loading: true })
     baseAxios.post('/orders.json', order)
       .then(res =>{
-        alert('saved successfully. Good luck pro.')
+        toast.success('Successfully ordered!')
       })
       .catch((err) => {
-        console.log('Error: ', err)
+        toast.error('Error: ' + err)
       })
       .finally(() => {
         this.setState({ loading: false })
@@ -104,6 +114,10 @@ class BurgerBuilder extends Component {
     }
     return (
       <div>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
         <Burger ingredients={this.state.ingredients} />
         {this.state.loading && <Spinner />}
         <BuildControls
