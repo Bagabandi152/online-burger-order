@@ -37,7 +37,7 @@ class BurgerBuilder extends Component {
       console.log('---orders res: ', res.data)
     })
     .catch((err) => {
-      console.log('Error: ', err)
+      toast.error('Error: ' + err)
     })
     .finally(() => {
       this.setState({ loading: false })
